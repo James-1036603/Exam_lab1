@@ -13,6 +13,32 @@ Screen::Screen(string::size_type height, string::size_type width, char bkground)
 										// character value of bkground
 { /* all the work is done with the member initialization list */ }
 
+void Screen::move(DIRECTION directionToMove)
+{
+	switch(directionToMove)
+	{
+		case DIRECTION::BACK:
+			Screen::back();
+			break;
+		case DIRECTION::DOWN:
+			Screen::down();
+			break;
+		case DIRECTION::END:
+			Screen::end();
+			break;
+		case DIRECTION::FORWARD:
+			Screen::forward();
+			break;
+		case DIRECTION::HOME:
+			Screen::home();
+			break;
+		case DIRECTION::UP:
+			Screen::up();
+			break;
+		default:
+			break;
+	}
+}
 void Screen::forward()
 {   // advance _cursor one screen element
 	++_cursor;
