@@ -6,27 +6,24 @@ using namespace std;
 
 int main()
 {
-	Screen myScreen{6,6};
-
-	myScreen.forward();
-	myScreen.set('*');
-	myScreen.down();
-	myScreen.set('*');
-	myScreen.move(3,3);
-	myScreen.set("---");
-
+	//Initial T
+	Screen myScreen{6,6, ' '};	
+	for(auto i = 1u; i != myScreen.width() ; i++)
+	{
+		myScreen.move(1,i);
+		myScreen.set('o');		
+	}
+	for(auto i = 1u; i != myScreen.height() ; i++)
+	{
+		myScreen.move(i,myScreen.width()/2);
+		myScreen.set('o');
+	}
+	
+		
+		
 	myScreen.display();
-	cout << endl;
 
-	myScreen.reSize(16,16);
-	myScreen.display();
-	myScreen.clear(' ');
-
-	myScreen.move(7,7);
-	myScreen.set("BIG");
-	myScreen.move(8,5);
-	myScreen.set("SCREEN");
-	myScreen.display();
+	
 
 	return 0;
 }
